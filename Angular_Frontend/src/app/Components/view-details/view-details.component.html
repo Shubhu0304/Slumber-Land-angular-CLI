@@ -1,4 +1,6 @@
 <body>
+  <ng-container>
+    <div class="row" align ="center">
     <div>
         <img src="{{ places?.newData[placeId]?.images.picture_url }}" alt="No Image Found">
         <h1> {{ places?.newData[placeId].name }} </h1>
@@ -33,4 +35,6 @@
         </div>
         <b>Transit:</b> {{ places?.newData[placeId].transit }}
     </div>
+  </div>
+  </ng-container>
 </body>
