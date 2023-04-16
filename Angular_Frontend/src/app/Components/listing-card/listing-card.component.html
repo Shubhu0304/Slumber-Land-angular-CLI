@@ -1,0 +1,14 @@
+<div class="d-flex flex-wrap mt-2">
+  <div class="card mx-auto" *ngFor="let item of landingPageData?.newData; let index = index" [attr.data-index]="index"
+    style="width: 18rem; margin: 1rem;">
+    <img src={{item.images?.picture_url}} class="card-img-top" alt="..." style="width: 18rem; height: 200px;">
+    <div class="card-body" style="display: flex; flex-direction: column;">
+      <h5 class="card-title">{{item.name | slice :0:50}}</h5>
+      <p class="card-text">{{item.description | slice:0:100}}</p>
+      <b>Price: ${{item.price}}</b>
+
+      <button *ngIf="isLoggedIn" (click)="addToFavorites(item)" href="#" class="btn btn-dark w-100 mt-auto">Add to Favourites</button>
+      <button [routerLink]="['view-details', index]" class="btn btn-dark w-100 my-1">View Details</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+<body>
+    <div>
+        <img src="{{ places?.newData[placeId]?.images.picture_url }}" alt="No Image Found">
+        <h1> {{ places?.newData[placeId].name }} </h1>
+        <p> {{ places?.newData[placeId].description }} </p>
+        <h4> Address </h4>
+        {{ places?.newData[placeId].address.market }}
+        <br />
+        {{ places?.newData[placeId].address.street }}
+        <br />
+        {{ places?.newData[placeId].address.suburb }}
+        <br />
+        {{ places?.newData[placeId].address.country }}
+        <br />
+        <br />
+        <h3> Price: ${{ places?.newData[placeId].price }} </h3>
+    </div>
+    <div class="action-buttons">
+        <button class="btn btn-dark w-20 my-1">Book A Room</button>
+        <button class="btn btn-dark w-20 my-1">Add to Favourites</button>
+    </div>
+    <div>
+        <h2> Details </h2>
+        <b>Property Type: </b> {{ places?.newData[placeId].property_type }}
+        <br />
+        <b>Bedrooms:</b> {{ places?.newData[placeId].bedrooms }} ({{ places?.newData[placeId].beds }} beds)
+        <br />
+        <b>Bathrooms:</b> {{ places?.newData[placeId].bathrooms }}
+        <br />
+        <b>Amenities:</b>
+        <div *ngFor="let amenity of places?.newData[placeId].amenities" style="margin-left: 20px;">
+            <li style="list-style: none;"> {{ amenity }} </li>
+        </div>
+        <b>Transit:</b> {{ places?.newData[placeId].transit }}
+    </div>
+</body>

@@ -1,0 +1,46 @@
+
+
+
+<div class="customContainer">
+  <div *ngIf="showAlert">
+  <div class="d-flex ">
+<div class="alert alert-primary d-flex justify-content-between w-100 align-items-center" role="alert">
+  {{message}}
+  <button class="btn btn-primary" (click)="navigate()">Close</button>
+  </div>
+
+</div>
+</div>
+<div *ngIf="showRedAlert" >
+  <div class="d-flex" >
+<div class="alert alert-danger d-flex justify-content-between w-100 align-items-center" data-dismiss="alert"  role="alert">
+ <div> {{message}}</div>
+  <button class="btn btn-danger" (click)="removeRedAlert()">Close</button>
+  </div>
+  
+</div>
+</div>
+    <h2 class="text-center">Sign In to Your Account</h2>
+<form #userData="ngForm" [formGroup]="loginValidationForm" (ngSubmit)="login(userData.value)" novalidate>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input type="email" ngModel class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" formControlName="email" >
+    <div style="color: 'red';" *ngIf="loginValidationForm.get('email')?.invalid && loginValidationForm.get('email').touched">
+      Enter Valid Email
+
+      <p>{{ userData.controls.email.errors | json }}</p>
+    </div>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" ngModel class="form-control" id="exampleInputPassword1" name="password" formControlName="password" >
+    <div style="color: 'red';" *ngIf="loginValidationForm.get('password')?.invalid && loginValidationForm.get('password').touched">
+      Password Invalid
+      <p>{{ userData.controls.password.errors | json }}</p>
+    </div>
+  </div>
+ 
+ 
+  <button type="submit" class="btn btn-dark">Login</button>
+</form>
+</div>

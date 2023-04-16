@@ -1,0 +1,33 @@
+
+@media screen and (min-width:200px) {
+    .customContainer{
+        margin:2rem 2rem;
+        padding: 1rem;
+        /* border: 1px solid gray; */
+        border-radius: 30px;
+    }
+}
+
+@media screen and (min-width:550px) {
+    .customContainer{
+        margin:2rem 5rem;
+        padding: 1rem;
+      
+    }
+}
+@media screen and (min-width:768px) {
+    .customContainer{
+        margin:3rem 10rem;
+        padding: 1rem;
+     
+    }
+}
+
+@media screen and (min-width:992px) {
+    .customContainer{
+        margin:3rem 20rem;
+        padding: 1rem;
+       
+    }
+    
+}
