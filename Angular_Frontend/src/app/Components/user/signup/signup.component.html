@@ -1,0 +1,44 @@
+<div class="customContainer">
+  <div *ngIf="showAlert">
+    <div class="d-flex ">
+  <div class="alert alert-primary d-flex justify-content-between w-100 align-items-center" role="alert">
+    {{message}}
+    <button class="btn btn-primary" (click)="navigate()">Close</button>
+    </div>
+  
+  </div>
+  </div>
+  <div *ngIf="showRedAlert" >
+    <div class="d-flex" >
+  <div class="alert alert-danger d-flex justify-content-between w-100 align-items-center" data-dismiss="alert"  role="alert">
+   <div> {{message}}</div>
+    <button class="btn btn-danger" (click)="removeRedAlert()">Close</button>
+    </div>
+    
+  </div>
+  </div>
+    <h2 class="text-center">SignUp</h2>
+    <form #userData="ngForm" (ngSubmit)="signUp(userData.value)">
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email address</label>
+        <input type="email" email  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" ngModel name="email" required  #email="ngModel">
+        <span style="color:'red'" *ngIf="email.invalid && email.touched">Enter Valid Email</span>
+     
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input type="password" ngModel class="form-control"  required minlength="6" id="password" name="password" #password = "ngModel">
+        <span style="color:'red'" *ngIf="password.invalid && password.touched">Password must be atleast 6 characters</span>
+      </div>
+     
+      <div class="mb-3">
+        <label for="exampleInputPassword2" class="form-label">Confirm Password</label>
+        <input type="password" ngModel class="form-control" id="confirmPassword"  required minlength="6" name="confirmPassword" #confirmPassword = "ngModel">
+        <span style="color:'red'" *ngIf="confirmPassword.invalid && confirmPassword.touched">Confirm Password must be atleast 6 characters</span>
+      </div>
+      
+      
+      <button type="submit" class="btn btn-dark">SignUp</button>
+    </form>
+    </div>
+    

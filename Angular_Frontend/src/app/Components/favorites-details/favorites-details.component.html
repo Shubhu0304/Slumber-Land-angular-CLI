@@ -1,0 +1,35 @@
+<body>
+    <div>
+        <img src="{{ places[placeId]?.images.picture_url }}" alt="No Image Found">
+        <h1> {{ places[placeId].name }} </h1>
+        <p> {{ places[placeId].description }} </p>
+        <h4> Address </h4>
+        {{ places[placeId].address.market }}
+        <br />
+        {{ places[placeId].address.street }}
+        <br />
+        {{ places[placeId].address.suburb }}
+        <br />
+        {{ places[placeId].address.country }}
+        <br />
+        <br />
+        <h3> Price: ${{ places[placeId].price }} </h3>
+    </div>
+    <div class="action-buttons">
+        <button class="btn btn-dark w-20 my-1">Book A Room</button>
+    </div>
+    <div>
+        <h2> Details </h2>
+        <b>Property Type: </b> {{ places[placeId].property_type }}
+        <br />
+        <b>Bedrooms:</b> {{ places[placeId].bedrooms }} ({{ places[placeId].beds }} beds)
+        <br />
+        <b>Bathrooms:</b> {{ places[placeId].bathrooms }}
+        <br />
+        <b>Amenities:</b>
+        <div *ngFor="let amenity of places[placeId].amenities" style="margin-left: 20px;">
+            <li style="list-style: none;"> {{ amenity }} </li>
+        </div>
+        <b>Transit:</b> {{ places[placeId].transit }}
+    </div>
+</body>

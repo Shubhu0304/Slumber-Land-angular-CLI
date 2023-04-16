@@ -1,0 +1,48 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" routerLink="">Slumber Land </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item p-1">
+            <a class="nav-link active" aria-current="page" routerLink="">Home</a>
+          </li>
+          <li class="nav-item p-1">
+            <a class="nav-link" routerLink="trending">Trending</a>
+          </li>
+          <li class="nav-item p-1">
+            <a class="nav-link" routerLink="top-picks">Top Picks</a>
+          </li>
+          <li class="nav-item p-1">
+            <a class="nav-link" routerLink="top-rated">Top Rated</a>
+          </li>
+          <form class="d-flex p-1">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+         <div class="customAlignAccount p-1">
+          <a *ngIf="isLoggedIn==false" routerLink="user/login" class="btn btn-dark customBtn" style="width: fit-content;">Login</a>
+          <a *ngIf="isLoggedIn==false" routerLink="user/signup" class="btn btn-dark customBtn"  style="width: fit-content;">SignUp</a>
+          <div class="dropdown"  *ngIf="isLoggedIn==true">
+            <button class="btn btn-secondary dropdown-toggle btn btn-dark customBtn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              {{UserEmail}}
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1" style="width: fit-content;">
+              <li><a class="dropdown-item" routerLink="favorites">My Favourites</a></li>
+              <li><a class="dropdown-item" (click)="logout()">Logout</a></li>
+
+            </ul>
+          </div>
+
+         </div>
+
+        </ul>
+
+      </div>
+    </div>
+  </nav>
+<router-outlet></router-outlet>
+
+<!-- <app-landing-page></app-landing-page> -->

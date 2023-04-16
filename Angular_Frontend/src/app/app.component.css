@@ -1,0 +1,24 @@
+
+@media  screen and (min-width:992px) {
+    
+    .customAlignAccount{
+        position: absolute;
+        right: 13px;
+        
+    }
+    .customBtn{
+        margin: 0 0.5rem;
+    }
+}
+
+@media  screen and (max-width:992px){
+    .customAlignAccount{
+       
+        display: flex;
+        flex-direction: column;
+        width: auto;
+    }
+    .customBtn{
+        margin-top: 0.3rem;
+    }
+}
