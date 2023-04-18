@@ -1,4 +1,11 @@
 
+.container
+{
+  height: 50vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 @media screen and (min-width:200px) {
     .customContainer{
         margin:2rem 2rem;
@@ -12,14 +19,14 @@
     .customContainer{
         margin:2rem 5rem;
         padding: 1rem;
-      
+
     }
 }
 @media screen and (min-width:768px) {
     .customContainer{
         margin:3rem 10rem;
         padding: 1rem;
-     
+
     }
 }
 
@@ -27,7 +34,7 @@
     .customContainer{
         margin:3rem 20rem;
         padding: 1rem;
-       
+
     }
-    
+
 }
