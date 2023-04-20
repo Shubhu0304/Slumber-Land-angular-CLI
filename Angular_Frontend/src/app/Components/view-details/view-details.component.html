@@ -8,7 +8,7 @@
       <div class="col ml-2 mt-5" align="center">
         <img src="{{ places?.newData[placeId]?.images.picture_url }}" alt="No Image Found" style="box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.75);"><br /><br/>
         <div class="action-buttons mt-3">
-          <button class=" btn btn-dark w-20 my-1" routerLink="app-booking-form" style="border-radius: 30px;">Book A Room</button>
+          <a class=" btn btn-dark w-20 my-1" routerLink="../../booking-form" style="border-radius: 30px;">Book A Room</a>
           <!-- <ng-container *ngIf="isLoggedIn==true">  -->
             <button class="btn btn-dark w-20 my-1"  style="border-radius: 30px;" *ngIf="isLoggedIn==true" (click)="addToFavorites(places?.newData[placeId])" href="#">Add to Favourites</button>
           <!-- </ng-container>  -->
