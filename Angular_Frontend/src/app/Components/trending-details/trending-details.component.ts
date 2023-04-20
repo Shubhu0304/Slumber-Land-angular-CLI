@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { LandingPageApiService } from 'src/app/landing-page-api.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AuthApiService } from 'src/app/auth-api.service';
+import { FavoritesServiceService } from 'src/app/favorites-service.service';
+
 
 @Component({
   selector: 'app-trending-details',
@@ -11,8 +14,8 @@ export class TrendingDetailsComponent {
 
   places;
   placeId;
-
-  constructor(private activatedRoute: ActivatedRoute, private data: LandingPageApiService) {
+  isLoggedIn;
+  constructor(private activatedRoute: ActivatedRoute, private data: LandingPageApiService,private route: Router, private user: AuthApiService, private favoritesService: FavoritesServiceService ) {
     this.placeId = this.activatedRoute.snapshot.paramMap.get('id');
 
     this.data.getTrendingPageData().subscribe(data => {
@@ -20,5 +23,16 @@ export class TrendingDetailsComponent {
       this.places = data
     });
   }
+  ngOnInit(): void {
+
+    this.isLoggedIn = this.user.isLoggedIn
+   
+   }
+   
+   addToFavorites(item: any): void {
+   
+   this.favoritesService.addToFavorites(item);
+   
+   }
 
 }

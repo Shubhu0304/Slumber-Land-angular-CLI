@@ -18,7 +18,7 @@
               <p class='generic-paragraph-small'>{{item.description | slice:0:200}}</p>
             <div class='row mb-3'>
                   <div class='col-xl-6 col-12'>
-                    <button *ngIf="isLoggedIn" (click)="addToFavorites(item)" href="#" class="btn btn-dark w-100 mt-auto mb-2" style=" border-radius: 30px;">Add to Favourites</button>
+                    <button *ngIf="isLoggedIn==true" (click)="addToFavorites(item)" href="#" class="btn btn-dark w-100 mt-auto mb-2" style=" border-radius: 30px;">Add to Favourites</button>
                     <button [routerLink]="['view-details', index]" class="btn btn-info w-100 my-1" style=" border-radius: 30px;">View Details</button>
                   </div>
             </div>

@@ -1,0 +1,90 @@
+<div class="container mt-4 border">
+
+  <h1 class="text-center">Book a Room</h1>
+  <div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Success!!!</strong> Your booking is confirmed.
+    <button (click)="closeAlert()" type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <form [formGroup]="bookingForm" (ngSubmit)="bookingForm.status !== 'INVALID' && bookingFunc()">
+    <div class="mb-3">
+      <label for="startdate" class="form-label">Check In Date</label>
+      <input type="date" class="form-control" id="startdate" formControlName="startdate" [ngClass]="{error : getControl('startdate')?.errors && getControl('startdate')?.touched}">
+      <div *ngIf="getControl('startdate')?.errors && getControl('startdate')?.touched">
+      <small class="text-danger" *ngIf="getControl('startdate')?.errors?.['required']">Please enter a check in date</small>
+    </div>
+      </div>
+
+        <div class="mb-3">
+
+      <label for="enddate" class="form-label">Check Out date</label>
+
+      <input type="date" class="form-control" id="enddate" formControlName="enddate" [ngClass]="{error : getControl('enddate')?.errors && getControl('enddate')?.touched}">
+      <div *ngIf="getControl('enddate')?.errors && getControl('enddate')?.touched">
+        <small class="text-danger" *ngIf="getControl('enddate')?.errors?.['required']">Please enter a check out date</small>
+
+      </div>
+
+    </div>
+
+    <div class="mb-3 row">
+      <div class="col">
+      <label for="guests" class="form-label">Number Guests</label>
+
+      <input type="number" class="form-control" id="guests"  formControlName="guests" [ngClass]="{error : getControl('guests')?.errors && getControl('guests')?.touched}">
+
+      <div *ngIf="getControl('guests')?.errors && getControl('guests')?.touched">
+
+        <small class="text-danger" *ngIf="getControl('guests')?.errors?.['guests']">Please let us know how many guest will be staying</small>
+
+        <small class="text-danger" *ngIf="getControl('guests')?.errors?.['pattern']">Invalid number of guests.</small>
+
+      </div>
+    </div>
+    <div class="col">
+      <label for="rooms" class="form-label">Rooms Required</label>
+
+      <input type="number" class="form-control" id="rooms"  formControlName="rooms" [ngClass]="{error : getControl('rooms')?.errors && getControl('rooms')?.touched}">
+
+      <div *ngIf="getControl('rooms')?.errors && getControl('rooms')?.touched">
+
+        <small class="text-danger" *ngIf="getControl('rooms')?.errors?.['rooms']">Please mention how many rooms required</small>
+
+        <small class="text-danger" *ngIf="getControl('rooms')?.errors?.['pattern']">Invalid Request</small>
+
+      </div>
+    </div>
+
+    </div>
+
+
+    <div class="mb-3">
+
+      <label for="email" class="form-label">Email Address</label>
+
+      <input type="email" class="form-control" id="email" placeholder="Email" formControlName="email" [ngClass]="{error : getControl('email')?.errors && getControl('email')?.touched}">
+
+      <div *ngIf="getControl('email')?.errors && getControl('email')?.touched">
+
+        <small class="text-danger" *ngIf="getControl('email')?.errors?.['required']">Please let us know your email, for booking confirmation</small>
+
+        <small class="text-danger" *ngIf="getControl('email')?.errors?.['pattern']">Please enter a valid email.</small>
+
+      </div>
+
+    </div>
+
+
+    <div class="mb-3 text-center">
+
+      <input type="submit" value ="Book Now" class="btn btn-warning btn-lg" [disabled]="bookingForm.status === 'INVALID'">
+
+    </div>
+
+  </form>
+
+</div>
+
+

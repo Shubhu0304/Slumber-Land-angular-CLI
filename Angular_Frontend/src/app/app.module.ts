@@ -20,6 +20,9 @@ import { TopPicksDetailsComponent } from './Components/top-picks-details/top-pic
 import { TopRatedDetailsComponent } from './Components/top-rated-details/top-rated-details.component';
 import { FavoritesComponent } from './Components/favorites/favorites.component';
 import { FavoritesDetailsComponent } from './Components/favorites-details/favorites-details.component';
+import { BookingFormComponent } from './Components/booking-form/booking-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -38,12 +41,15 @@ import { FavoritesDetailsComponent } from './Components/favorites-details/favori
     TopRatedDetailsComponent,
     FavoritesComponent,
     FavoritesDetailsComponent,
+    BookingFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule, BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

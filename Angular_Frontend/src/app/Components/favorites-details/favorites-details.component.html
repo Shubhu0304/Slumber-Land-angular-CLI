@@ -1,7 +1,17 @@
 <body>
-    <div>
-        <img src="{{ places[placeId]?.images.picture_url }}" alt="No Image Found">
+  <ng-container>
+    <div class="row">
+      <div align ="center">
         <h1> {{ places[placeId].name }} </h1>
+      </div>
+    <div class="row">
+      <div class="col ml-2 mt-5" align="center">
+        <img src="{{ places[placeId]?.images.picture_url }}" alt="No Image Found" style="box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.75);">
+          <div class="action-buttons mt-3">
+            <button class="btn btn-dark w-20 my-1">Book A Room</button>
+          </div>
+      </div>
+      <div class="col ml-1 mt-5">
         <p> {{ places[placeId].description }} </p>
         <h4> Address </h4>
         {{ places[placeId].address.market }}
@@ -16,7 +26,7 @@
         <h3> Price: ${{ places[placeId].price }} </h3>
     </div>
     <div class="action-buttons">
-        <button class="btn btn-dark w-20 my-1">Book A Room</button>
+        <button [routerLink]="['app-booking-form']" class="btn btn-dark w-20 my-1">Book A Room</button>
     </div>
     <div>
         <h2> Details </h2>
@@ -32,4 +42,4 @@
         </div>
         <b>Transit:</b> {{ places[placeId].transit }}
     </div>
-</body>
+

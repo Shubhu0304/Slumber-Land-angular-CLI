@@ -9,7 +9,7 @@ import { AuthApiService } from './auth-api.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'frontend';
+  title = 'Slumber Land';
   LoginToken;
  
   UserEmail 

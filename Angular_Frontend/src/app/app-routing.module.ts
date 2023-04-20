@@ -12,7 +12,9 @@ import { TopPicksDetailsComponent } from './Components/top-picks-details/top-pic
 import { TopRatedDetailsComponent } from './Components/top-rated-details/top-rated-details.component';
 import { FavoritesComponent } from './Components/favorites/favorites.component';
 import { FavoritesDetailsComponent } from './Components/favorites-details/favorites-details.component';
-
+import { BookingFormComponent } from './Components/booking-form/booking-form.component';
+import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {
@@ -56,6 +58,10 @@ const routes: Routes = [
     component: FavoritesDetailsComponent
   },
   {
+    path:'booking-form',
+    component: BookingFormComponent
+  },
+  {
     path: 'user', loadChildren: () => import('./Components/user/user.module').then(mod => mod.UserModule)
   },
   {
@@ -66,7 +72,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes),CommonModule,ReactiveFormsModule],
   exports: [RouterModule]
 })
 
